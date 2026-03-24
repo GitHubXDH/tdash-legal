@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,18 +10,11 @@
     :root {
       color-scheme: dark;
       --bg: #07111f;
-      --bg-2: #0b1830;
-      --panel: rgba(11, 20, 38, 0.78);
-      --panel-strong: rgba(15, 26, 48, 0.9);
-      --card: rgba(255, 255, 255, 0.05);
-      --card-hover: rgba(255, 255, 255, 0.08);
       --text: #f6f8fc;
       --muted: #a5b3ca;
       --line: rgba(255, 255, 255, 0.1);
       --accent: #ff6b2c;
-      --accent-soft: rgba(255, 107, 44, 0.18);
       --accent-cool: #70d7ff;
-      --accent-cool-soft: rgba(112, 215, 255, 0.14);
       --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
       --radius-xl: 30px;
       --radius-lg: 22px;
@@ -30,10 +24,6 @@
 
     * {
       box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -81,8 +71,7 @@
       padding: 34px;
       border-radius: var(--radius-xl);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      background:
-        linear-gradient(135deg, rgba(13, 24, 46, 0.96) 0%, rgba(18, 31, 58, 0.94) 48%, rgba(11, 18, 35, 0.94) 100%);
+      background: linear-gradient(135deg, rgba(13, 24, 46, 0.96) 0%, rgba(18, 31, 58, 0.94) 48%, rgba(11, 18, 35, 0.94) 100%);
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
     }
@@ -112,13 +101,13 @@
       background: radial-gradient(circle, rgba(255, 107, 44, 0.18) 0%, rgba(255, 107, 44, 0.03) 72%, transparent 100%);
     }
 
-    .hero-inner {
+    .hero-top {
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: 1.3fr 0.9fr;
-      gap: 28px;
-      align-items: stretch;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
     }
 
     .eyebrow {
@@ -145,8 +134,50 @@
       box-shadow: 0 0 18px rgba(112, 215, 255, 0.75);
     }
 
+    .lang-switch {
+      display: inline-flex;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: #c2d0e8;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, rgba(255, 107, 44, 0.22) 0%, rgba(255, 107, 44, 0.08) 100%);
+      color: #fff5ef;
+      box-shadow: inset 0 0 0 1px rgba(255, 107, 44, 0.28);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      margin-top: 18px;
+      align-items: stretch;
+    }
+
     h1 {
-      margin: 20px 0 12px;
+      margin: 0 0 12px;
       font-size: clamp(42px, 7vw, 72px);
       line-height: 1.02;
       letter-spacing: -0.045em;
@@ -168,13 +199,20 @@
       margin-top: 28px;
     }
 
+    .point,
+    .support-panel,
+    .privacy-panel,
+    .info-card,
+    .mini-card {
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(14px);
+    }
+
     .point {
       padding: 16px 18px;
       min-height: 110px;
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      backdrop-filter: blur(10px);
     }
 
     .point-label {
@@ -215,9 +253,7 @@
     .privacy-panel {
       padding: 22px;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.1);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.045) 100%);
-      backdrop-filter: blur(14px);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
@@ -323,10 +359,8 @@
       overflow: hidden;
       padding: 24px;
       border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
       background: linear-gradient(180deg, rgba(14, 24, 43, 0.82) 0%, rgba(11, 19, 34, 0.78) 100%);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(18px);
     }
 
     .info-card::before {
@@ -424,7 +458,6 @@
       padding: 18px;
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .mini-card h4 {
@@ -483,8 +516,17 @@
       }
 
       .hero {
-        padding: 24px;
+        padding: 22px;
         border-radius: 24px;
+      }
+
+      .hero-top {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .lang-switch {
+        align-self: flex-start;
       }
 
       .hero-points,
@@ -510,32 +552,38 @@
 <body>
   <main class="wrap">
     <section class="hero">
+      <div class="hero-top">
+        <span class="eyebrow" data-i18n="eyebrow">TDash Support</span>
+        <div class="lang-switch" aria-label="language switch">
+          <button class="lang-btn active" data-lang="zh">中文</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+
       <div class="hero-inner">
         <div>
-          <span class="eyebrow">TDash Support</span>
-          <h1>TDash<br />特斯拉的仪表盘APP</h1>
-          <p class="hero-lead">
-            TDash 面向车辆本地连接与驾驶信息展示场景而设计。如果你在蓝牙连接、授权配对、状态显示或隐私政策方面遇到问题，可以通过本页快速找到支持入口与排查建议。
-          </p>
+          <h1 data-i18n-html="hero_title">TDash<br />特斯拉的仪表盘APP</h1>
+          <p class="hero-lead" data-i18n="hero_lead">TDash 面向车辆本地连接与驾驶信息展示场景而设计。如果你在蓝牙连接、授权配对、状态显示或隐私政策方面遇到问题，可以通过本页快速找到支持入口与排查建议。</p>
           <div class="hero-points">
             <div class="point">
-              <span class="point-label">本地连接</span>
-              <p>围绕蓝牙直连、配对和状态展示问题，提供更聚焦的排查方向。</p>
+              <span class="point-label" data-i18n="point_1_title">本地连接</span>
+              <p data-i18n="point_1_body">围绕蓝牙直连、配对和状态展示问题，提供更聚焦的排查方向。</p>
             </div>
             <div class="point">
-              <span class="point-label">隐私边界</span>
-              <p>支持页保留最必要的信息结构，同时直接链接隐私政策页面。</p>
+              <span class="point-label" data-i18n="point_2_title">隐私边界</span>
+              <p data-i18n="point_2_body">支持页保留最必要的信息结构，同时直接链接隐私政策页面。</p>
             </div>
             <div class="point">
-              <span class="point-label">快速反馈</span>
-              <p>优先使用邮箱联系，并附上车辆、设备和问题现场信息以便更快定位。</p>
+              <span class="point-label" data-i18n="point_3_title">快速反馈</span>
+              <p data-i18n="point_3_body">优先使用邮箱联系，并附上车辆、设备和问题现场信息以便更快定位。</p>
             </div>
           </div>
         </div>
+
         <div class="hero-side">
           <div class="support-panel">
-            <h2 class="panel-title">联系支持</h2>
-            <p class="panel-subtitle">如果你已经准备好问题详情，现在就可以直接通过邮箱联系我们。</p>
+            <h2 class="panel-title" data-i18n="contact_title">联系支持</h2>
+            <p class="panel-subtitle" data-i18n="contact_body">如果你已经准备好问题详情，现在就可以直接通过邮箱联系我们。</p>
             <a class="mail-link" href="mailto:xudehui_work@163.com">
               <span class="mail-icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -545,11 +593,12 @@
               <span>xudehui_work@163.com</span>
             </a>
           </div>
+
           <div class="privacy-panel">
-            <h2 class="panel-title">隐私与说明</h2>
-            <p class="panel-subtitle">TDash 为第三方工具，与 Tesla, Inc. 及其关联公司无隶属、授权或官方合作关系。</p>
+            <h2 class="panel-title" data-i18n="privacy_title">隐私与说明</h2>
+            <p class="panel-subtitle" data-i18n="privacy_body">TDash 为第三方工具，与 Tesla, Inc. 及其关联公司无隶属、授权或官方合作关系。</p>
             <a class="privacy-link" href="https://githubxdh.github.io/tdash-legal/tdash-privacy-policy.html" target="_blank" rel="noreferrer">
-              <span>查看 TDash 隐私政策</span>
+              <span data-i18n="privacy_link">查看 TDash 隐私政策</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 17L17 7M17 7H8.5M17 7V15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -560,46 +609,46 @@
     </section>
 
     <div class="section-head">
-      <h2>支持信息</h2>
-      <p>这页不是一份冗长的说明书，而是一张更容易扫读的支持面板。你可以先看常见问题，再决定是否发送邮件。</p>
+      <h2 data-i18n="section_title">支持信息</h2>
+      <p data-i18n="section_body">这页不是一份冗长的说明书，而是一张更容易扫读的支持面板。你可以先看常见问题，再决定是否发送邮件。</p>
     </div>
 
     <section class="content-grid">
       <div class="stack">
         <article class="info-card">
           <div class="card-top">
-            <span class="card-tag">Contact</span>
+            <span class="card-tag" data-i18n="tag_contact">Contact</span>
             <span class="card-index">01</span>
           </div>
-          <h3>建议这样反馈问题</h3>
-          <p>如果你通过邮箱联系我们，建议把下面这些信息一次性附上，这样排查会明显更快。</p>
+          <h3 data-i18n="report_title">建议这样反馈问题</h3>
+          <p data-i18n="report_body">如果你通过邮箱联系我们，建议把下面这些信息一次性附上，这样排查会明显更快。</p>
           <ul class="bullet-list">
-            <li>问题发生时的时间与环境说明</li>
-            <li>车辆型号与软件版本</li>
-            <li>iPhone 型号与 iOS 版本</li>
-            <li>故障现象截图或录屏</li>
+            <li data-i18n="report_item_1">问题发生时的时间与环境说明</li>
+            <li data-i18n="report_item_2">车辆型号与软件版本</li>
+            <li data-i18n="report_item_3">iPhone 型号与 iOS 版本</li>
+            <li data-i18n="report_item_4">故障现象截图或录屏</li>
           </ul>
           <div class="tips-row">
             <div class="mini-card">
-              <h4>更快定位</h4>
-              <p>如果问题和蓝牙连接有关，尽量说明是在扫描、连接、授权还是进入仪表后出现。</p>
+              <h4 data-i18n="tip_fast_title">更快定位</h4>
+              <p data-i18n="tip_fast_body">如果问题和蓝牙连接有关，尽量说明是在扫描、连接、授权还是进入仪表后出现。</p>
             </div>
             <div class="mini-card">
-              <h4>更好复现</h4>
-              <p>如果问题能稳定复现，补充复现步骤会比单纯一句“无法连接”更有效。</p>
+              <h4 data-i18n="tip_repro_title">更好复现</h4>
+              <p data-i18n="tip_repro_body">如果问题能稳定复现，补充复现步骤会比单纯一句“无法连接”更有效。</p>
             </div>
           </div>
         </article>
 
         <article class="info-card policy-card">
           <div class="card-top">
-            <span class="card-tag">Policy</span>
+            <span class="card-tag" data-i18n="tag_policy">Policy</span>
             <span class="card-index">02</span>
           </div>
-          <h3>法律与隐私</h3>
-          <p>当前支持页只提供最必要的支持入口与隐私说明，敏感配置与配对相关数据仍以设备本地处理为主。</p>
+          <h3 data-i18n="legal_title">法律与隐私</h3>
+          <p data-i18n="legal_body">当前支持页只提供最必要的支持入口与隐私说明，敏感配置与配对相关数据仍以设备本地处理为主。</p>
           <a class="privacy-link" href="https://githubxdh.github.io/tdash-legal/tdash-privacy-policy.html" target="_blank" rel="noreferrer">
-            <span>阅读完整隐私政策</span>
+            <span data-i18n="legal_link">阅读完整隐私政策</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7 17L17 7M17 7H8.5M17 7V15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -610,38 +659,175 @@
       <div class="stack">
         <article class="info-card">
           <div class="card-top">
-            <span class="card-tag">FAQ</span>
+            <span class="card-tag" data-i18n="tag_faq">FAQ</span>
             <span class="card-index">03</span>
           </div>
-          <h3>常见问题</h3>
+          <h3 data-i18n="faq_title">常见问题</h3>
           <ul class="bullet-list">
-            <li>请确认 iPhone 已开启蓝牙权限。</li>
-            <li>请确认车辆支持相应的蓝牙连接与授权流程。</li>
-            <li>首次配对通常需要在车内完成授权确认。</li>
-            <li>不同车型、软件版本与地区环境下，数据展示可能存在差异。</li>
+            <li data-i18n="faq_item_1">请确认 iPhone 已开启蓝牙权限。</li>
+            <li data-i18n="faq_item_2">请确认车辆支持相应的蓝牙连接与授权流程。</li>
+            <li data-i18n="faq_item_3">首次配对通常需要在车内完成授权确认。</li>
+            <li data-i18n="faq_item_4">不同车型、软件版本与地区环境下，数据展示可能存在差异。</li>
           </ul>
         </article>
 
         <article class="info-card">
           <div class="card-top">
-            <span class="card-tag">Scope</span>
+            <span class="card-tag" data-i18n="tag_scope">Scope</span>
             <span class="card-index">04</span>
           </div>
-          <h3>当前支持范围</h3>
+          <h3 data-i18n="scope_title">当前支持范围</h3>
           <ul class="bullet-list">
-            <li>蓝牙连接、扫描、授权配对相关问题</li>
-            <li>车辆状态显示、数据刷新与界面展示问题</li>
-            <li>隐私政策入口、权限说明与基础使用反馈</li>
-            <li>后续版本优化建议与问题信息收集</li>
+            <li data-i18n="scope_item_1">蓝牙连接、扫描、授权配对相关问题</li>
+            <li data-i18n="scope_item_2">车辆状态显示、数据刷新与界面展示问题</li>
+            <li data-i18n="scope_item_3">隐私政策入口、权限说明与基础使用反馈</li>
+            <li data-i18n="scope_item_4">后续版本优化建议与问题信息收集</li>
           </ul>
         </article>
       </div>
     </section>
 
     <footer class="footer">
-      <span><strong>TDash Support</strong> · 纯本地、蓝牙直连的驾驶信息工具支持页</span>
-      <span>Last updated: 2026-03-24</span>
+      <span data-i18n-html="footer_left"><strong>TDash Support</strong> · 纯本地、蓝牙直连的驾驶信息工具支持页</span>
+      <span data-i18n="footer_right">Last updated: 2026-03-24</span>
     </footer>
   </main>
+
+  <script>
+    const translations = {
+      zh: {
+        page_title: 'TDash 支持',
+        page_desc: 'TDash 支持',
+        eyebrow: 'TDash Support',
+        hero_title: 'TDash<br />特斯拉的仪表盘APP',
+        hero_lead: 'TDash 面向车辆本地连接与驾驶信息展示场景而设计。如果你在蓝牙连接、授权配对、状态显示或隐私政策方面遇到问题，可以通过本页快速找到支持入口与排查建议。',
+        point_1_title: '本地连接',
+        point_1_body: '围绕蓝牙直连、配对和状态展示问题，提供更聚焦的排查方向。',
+        point_2_title: '隐私边界',
+        point_2_body: '支持页保留最必要的信息结构，同时直接链接隐私政策页面。',
+        point_3_title: '快速反馈',
+        point_3_body: '优先使用邮箱联系，并附上车辆、设备和问题现场信息以便更快定位。',
+        contact_title: '联系支持',
+        contact_body: '如果你已经准备好问题详情，现在就可以直接通过邮箱联系我们。',
+        privacy_title: '隐私与说明',
+        privacy_body: 'TDash 为第三方工具，与 Tesla, Inc. 及其关联公司无隶属、授权或官方合作关系。',
+        privacy_link: '查看 TDash 隐私政策',
+        section_title: '支持信息',
+        section_body: '这页不是一份冗长的说明书，而是一张更容易扫读的支持面板。你可以先看常见问题，再决定是否发送邮件。',
+        tag_contact: 'Contact',
+        report_title: '建议这样反馈问题',
+        report_body: '如果你通过邮箱联系我们，建议把下面这些信息一次性附上，这样排查会明显更快。',
+        report_item_1: '问题发生时的时间与环境说明',
+        report_item_2: '车辆型号与软件版本',
+        report_item_3: 'iPhone 型号与 iOS 版本',
+        report_item_4: '故障现象截图或录屏',
+        tip_fast_title: '更快定位',
+        tip_fast_body: '如果问题和蓝牙连接有关，尽量说明是在扫描、连接、授权还是进入仪表后出现。',
+        tip_repro_title: '更好复现',
+        tip_repro_body: '如果问题能稳定复现，补充复现步骤会比单纯一句“无法连接”更有效。',
+        tag_policy: 'Policy',
+        legal_title: '法律与隐私',
+        legal_body: '当前支持页只提供最必要的支持入口与隐私说明，敏感配置与配对相关数据仍以设备本地处理为主。',
+        legal_link: '阅读完整隐私政策',
+        tag_faq: 'FAQ',
+        faq_title: '常见问题',
+        faq_item_1: '请确认 iPhone 已开启蓝牙权限。',
+        faq_item_2: '请确认车辆支持相应的蓝牙连接与授权流程。',
+        faq_item_3: '首次配对通常需要在车内完成授权确认。',
+        faq_item_4: '不同车型、软件版本与地区环境下，数据展示可能存在差异。',
+        tag_scope: 'Scope',
+        scope_title: '当前支持范围',
+        scope_item_1: '蓝牙连接、扫描、授权配对相关问题',
+        scope_item_2: '车辆状态显示、数据刷新与界面展示问题',
+        scope_item_3: '隐私政策入口、权限说明与基础使用反馈',
+        scope_item_4: '后续版本优化建议与问题信息收集',
+        footer_left: '<strong>TDash Support</strong> · 纯本地、蓝牙直连的驾驶信息工具支持页',
+        footer_right: 'Last updated: 2026-03-24'
+      },
+      en: {
+        page_title: 'TDash Support',
+        page_desc: 'TDash Support',
+        eyebrow: 'TDash Support',
+        hero_title: 'TDash<br />Tesla Dashboard App',
+        hero_lead: 'TDash is designed for local vehicle connection and driving information display. If you run into issues with Bluetooth connection, pairing, dashboard data, or privacy policy questions, this page gives you a faster support entry point and troubleshooting guide.',
+        point_1_title: 'Local Connection',
+        point_1_body: 'Focused guidance for Bluetooth connection, pairing, and dashboard status display issues.',
+        point_2_title: 'Privacy Boundary',
+        point_2_body: 'This support page keeps the structure minimal while linking directly to the privacy policy.',
+        point_3_title: 'Fast Feedback',
+        point_3_body: 'Use email first and include the vehicle, device, and issue context so we can narrow things down faster.',
+        contact_title: 'Contact Support',
+        contact_body: 'If you already have the key details ready, you can contact us by email right away.',
+        privacy_title: 'Privacy and Notice',
+        privacy_body: 'TDash is a third-party tool and is not affiliated with, endorsed by, or sponsored by Tesla, Inc. or its affiliates.',
+        privacy_link: 'View the TDash Privacy Policy',
+        section_title: 'Support Information',
+        section_body: 'This page is meant to feel like a fast support panel, not a long manual. Check the common questions first, then decide whether to send an email.',
+        tag_contact: 'Contact',
+        report_title: 'How to Report an Issue',
+        report_body: 'If you contact us by email, including the following details up front usually helps us troubleshoot much faster.',
+        report_item_1: 'Time and environment when the issue happened',
+        report_item_2: 'Vehicle model and software version',
+        report_item_3: 'iPhone model and iOS version',
+        report_item_4: 'Screenshots or screen recordings of the issue',
+        tip_fast_title: 'Faster Triage',
+        tip_fast_body: 'If the problem is Bluetooth-related, describe whether it happened during scanning, connection, authorization, or after entering the dashboard.',
+        tip_repro_title: 'Better Reproduction',
+        tip_repro_body: 'If the issue is reproducible, sharing the exact steps is much more helpful than only saying that it failed.',
+        tag_policy: 'Policy',
+        legal_title: 'Legal and Privacy',
+        legal_body: 'This support page only includes the most necessary support entry points and privacy information. Sensitive setup and pairing-related data remain primarily processed on-device.',
+        legal_link: 'Read the Full Privacy Policy',
+        tag_faq: 'FAQ',
+        faq_title: 'Common Questions',
+        faq_item_1: 'Make sure Bluetooth permission is enabled on your iPhone.',
+        faq_item_2: 'Make sure your vehicle supports the relevant Bluetooth connection and authorization flow.',
+        faq_item_3: 'The first pairing flow usually requires an in-car authorization step.',
+        faq_item_4: 'Displayed data may vary by model, software version, region, and environment.',
+        tag_scope: 'Scope',
+        scope_title: 'Current Support Scope',
+        scope_item_1: 'Bluetooth connection, scanning, and pairing-related issues',
+        scope_item_2: 'Vehicle status display, data refresh, and interface issues',
+        scope_item_3: 'Privacy policy entry, permission explanation, and basic usage feedback',
+        scope_item_4: 'Suggestions for future versions and issue detail collection',
+        footer_left: '<strong>TDash Support</strong> · A local-first support page for a Bluetooth-connected driving information tool',
+        footer_right: 'Last updated: 2026-03-24'
+      }
+    };
+
+    const applyLanguage = (lang) => {
+      const dict = translations[lang] || translations.zh;
+      document.documentElement.lang = lang === 'en' ? 'en' : 'zh-CN';
+      document.title = dict.page_title;
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute('content', dict.page_desc);
+
+      document.querySelectorAll('[data-i18n]').forEach((node) => {
+        const key = node.getAttribute('data-i18n');
+        if (dict[key]) node.textContent = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach((node) => {
+        const key = node.getAttribute('data-i18n-html');
+        if (dict[key]) node.innerHTML = dict[key];
+      });
+
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      localStorage.setItem('tdash_support_lang', lang);
+    };
+
+    const savedLang = localStorage.getItem('tdash_support_lang');
+    const browserLang = navigator.language && navigator.language.toLowerCase().startsWith('en') ? 'en' : 'zh';
+    const initialLang = savedLang || browserLang;
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+    });
+
+    applyLanguage(initialLang);
+  </script>
 </body>
 </html>
